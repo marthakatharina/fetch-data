@@ -1,4 +1,10 @@
 let bar = document.getElementById("bar");
+let pie = document.getElementById("pie");
+
+let layout = {
+    height: 400,
+    width: 500,
+};
 
 async function renderChart(result) {
     // let response = await fetch(
@@ -17,6 +23,8 @@ async function renderChart(result) {
         if (valueCount[value]) {
             // Increment the count if the value already exists
             valueCount[value]++;
+        } else if ("Friedrichsahin-Kreuzberg" === value) {
+            valueCount["Friedrichshain-Kreuzberg"]++;
         } else {
             // Initialize the count if the value doesn't exist
             valueCount[value] = 1;
@@ -34,17 +42,41 @@ async function renderChart(result) {
     console.log(values);
     console.log(counts);
 
-    drawChart(values, counts);
+    drawBar(values, counts);
+    drawPie(values, counts);
 }
 
-function drawChart(values, counts) {
-    Plotly.newPlot(bar, [
-        {
-            x: values,
-            y: counts,
-            type: "bar",
-        },
-    ]);
+function drawBar(values, counts) {
+    Plotly.newPlot(
+        bar,
+        [
+            {
+                x: values,
+                y: counts,
+                type: "bar",
+            },
+        ],
+        layout
+    );
 }
 
-// renderChart();
+function drawPie(labels, values) {
+    Plotly.newPlot(
+        pie,
+        [
+            {
+                labels: labels,
+                values: values,
+                type: "pie",
+            },
+        ],
+        layout
+    );
+    pie.on("plotly_click", function (data) {
+        console.log(data);
+        let districts = data.points[0].label;
+        console.log(districts);
+
+        fetchAndRenderEvents(districts);
+    });
+}

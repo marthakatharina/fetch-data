@@ -1,7 +1,7 @@
 let content = document.getElementById("events-main");
 
 async function renderEvents(data) {
-    //content.innerHTML = "";
+    content.innerHTML = "";
 
     // let response = await fetch(url);
     // let data = await response.json();
@@ -9,7 +9,7 @@ async function renderEvents(data) {
 
     for (let i = 0; i < data.index.length; i++) {
         let object = data.index[i];
-        console.log(object);
+        //  console.log(object);
         // console.log(object.bezeichnung);
         // console.log(object.bezirk);
 
@@ -25,13 +25,6 @@ async function renderEvents(data) {
         let days = document.createElement("h3");
         days.textContent = object.tage;
         card.appendChild(days);
-
-        // let dateFrom = document.createElement("span");
-        // dateFrom.textContent = object.von + " - ";
-        // card.appendChild(dateFrom);
-        // let dateTo = document.createElement("span");
-        // dateTo.textContent = object.bis;
-        // card.appendChild(dateTo);
 
         let time = document.createElement("p");
         time.textContent = object.zeiten;
