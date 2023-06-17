@@ -1,7 +1,9 @@
 let content = document.getElementById("events-main");
+let btnsWrapper = document.getElementById("buttons-wrapper");
 
 async function renderEvents(data) {
     content.innerHTML = "";
+    btnsWrapper.innerHTML = "";
 
     filterEventsBtns(data);
 
@@ -37,17 +39,17 @@ function filterEventsBtns(data) {
     for (let i = 0; i < btns.length; i++) {
         let btn = document.createElement("button");
         btn.textContent = btns[i];
-        content.appendChild(btn);
+        btnsWrapper.appendChild(btn);
 
         btn.addEventListener("click", () => {
-            console.log("button cliked");
+            // console.log("button cliked");
             const filteredDays = data.index.filter((obj) =>
                 obj.tage.includes(btns[i])
             );
             console.log(filteredDays);
 
             content.innerHTML = "";
-            content.appendChild(btn);
+            // content.appendChild(btn);
             for (let j = 0; j < filteredDays.length; j++) {
                 let obj = filteredDays[j];
 
@@ -74,42 +76,4 @@ function filterEventsBtns(data) {
             }
         });
     }
-    // let btn = document.createElement("button");
-    // btn.textContent = "Sa";
-    // content.appendChild(btn);
-
-    // btn.addEventListener("click", () => {
-    //     console.log("button cliked");
-    //     const filteredDays = data.index.filter((obj) =>
-    //         obj.tage.includes("Sa")
-    //     );
-    //     console.log(filteredDays);
-
-    //     content.innerHTML = "";
-    //     content.appendChild(btn);
-    //     for (let j = 0; j < filteredDays.length; j++) {
-    //         let obj = filteredDays[j];
-
-    //         let card = document.createElement("div");
-
-    //         content.appendChild(card);
-    //         card.className = "card";
-
-    //         let eventName = document.createElement("h2");
-    //         eventName.textContent = obj.bezeichnung;
-    //         card.appendChild(eventName);
-
-    //         let days = document.createElement("h3");
-    //         days.textContent = obj.tage;
-    //         card.appendChild(days);
-
-    //         let time = document.createElement("p");
-    //         time.textContent = obj.zeiten;
-    //         card.appendChild(time);
-
-    //         let district = document.createElement("p");
-    //         district.textContent = obj.bezirk;
-    //         card.appendChild(district);
-    //     }
-    // });
 }
