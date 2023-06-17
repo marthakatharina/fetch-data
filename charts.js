@@ -2,16 +2,11 @@ let bar = document.getElementById("bar");
 let pie = document.getElementById("pie");
 
 let layout = {
-    height: 400,
-    width: 500,
+    height: 500,
+    width: 600,
 };
 
 async function renderChart(result) {
-    // let response = await fetch(
-    //     "https://www.berlin.de/sen/web/service/maerkte-feste/wochen-troedelmaerkte/index.php/index/all.json?q="
-    // );
-    // let result = await response.json();
-
     const valueCount = {};
 
     for (let i = 0; i < result.index.length; i++) {
@@ -23,6 +18,7 @@ async function renderChart(result) {
         if (valueCount[value]) {
             // Increment the count if the value already exists
             valueCount[value]++;
+            // typo spotted in the dataset - clean the data
         } else if ("Friedrichsahin-Kreuzberg" === value) {
             valueCount["Friedrichshain-Kreuzberg"]++;
         } else {
@@ -66,7 +62,7 @@ function drawPie(labels, values) {
         [
             {
                 labels: labels,
-                values: values,
+                values: values, // counts
                 type: "pie",
             },
         ],

@@ -3,15 +3,11 @@ let content = document.getElementById("events-main");
 async function renderEvents(data) {
     content.innerHTML = "";
 
-    // let response = await fetch(url);
-    // let data = await response.json();
-    // // console.log(data);
+    filterEventsBtns(data);
 
     for (let i = 0; i < data.index.length; i++) {
         let object = data.index[i];
         //  console.log(object);
-        // console.log(object.bezeichnung);
-        // console.log(object.bezirk);
 
         let card = document.createElement("div");
 
@@ -36,6 +32,84 @@ async function renderEvents(data) {
     }
 }
 
-// fetchEvents(
-//     "https://www.berlin.de/sen/web/service/maerkte-feste/wochen-troedelmaerkte/index.php/index/all.json?q="
-// );
+function filterEventsBtns(data) {
+    let btns = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"];
+    for (let i = 0; i < btns.length; i++) {
+        let btn = document.createElement("button");
+        btn.textContent = btns[i];
+        content.appendChild(btn);
+
+        btn.addEventListener("click", () => {
+            console.log("button cliked");
+            const filteredDays = data.index.filter((obj) =>
+                obj.tage.includes(btns[i])
+            );
+            console.log(filteredDays);
+
+            content.innerHTML = "";
+            content.appendChild(btn);
+            for (let j = 0; j < filteredDays.length; j++) {
+                let obj = filteredDays[j];
+
+                let card = document.createElement("div");
+
+                content.appendChild(card);
+                card.className = "card";
+
+                let eventName = document.createElement("h2");
+                eventName.textContent = obj.bezeichnung;
+                card.appendChild(eventName);
+
+                let days = document.createElement("h3");
+                days.textContent = obj.tage;
+                card.appendChild(days);
+
+                let time = document.createElement("p");
+                time.textContent = obj.zeiten;
+                card.appendChild(time);
+
+                let district = document.createElement("p");
+                district.textContent = obj.bezirk;
+                card.appendChild(district);
+            }
+        });
+    }
+    // let btn = document.createElement("button");
+    // btn.textContent = "Sa";
+    // content.appendChild(btn);
+
+    // btn.addEventListener("click", () => {
+    //     console.log("button cliked");
+    //     const filteredDays = data.index.filter((obj) =>
+    //         obj.tage.includes("Sa")
+    //     );
+    //     console.log(filteredDays);
+
+    //     content.innerHTML = "";
+    //     content.appendChild(btn);
+    //     for (let j = 0; j < filteredDays.length; j++) {
+    //         let obj = filteredDays[j];
+
+    //         let card = document.createElement("div");
+
+    //         content.appendChild(card);
+    //         card.className = "card";
+
+    //         let eventName = document.createElement("h2");
+    //         eventName.textContent = obj.bezeichnung;
+    //         card.appendChild(eventName);
+
+    //         let days = document.createElement("h3");
+    //         days.textContent = obj.tage;
+    //         card.appendChild(days);
+
+    //         let time = document.createElement("p");
+    //         time.textContent = obj.zeiten;
+    //         card.appendChild(time);
+
+    //         let district = document.createElement("p");
+    //         district.textContent = obj.bezirk;
+    //         card.appendChild(district);
+    //     }
+    // });
+}
