@@ -28,6 +28,10 @@ async function renderEvents(data) {
         time.textContent = object.zeiten;
         card.appendChild(time);
 
+        let address = document.createElement("p");
+        address.textContent = object.strasse + ", " + object.plz;
+        card.appendChild(address);
+
         let district = document.createElement("p");
         district.textContent = object.bezirk;
         card.appendChild(district);
@@ -49,7 +53,7 @@ function filterEventsBtns(data) {
             console.log(filteredDays);
 
             content.innerHTML = "";
-            // content.appendChild(btn);
+
             for (let j = 0; j < filteredDays.length; j++) {
                 let obj = filteredDays[j];
 
@@ -69,6 +73,10 @@ function filterEventsBtns(data) {
                 let time = document.createElement("p");
                 time.textContent = obj.zeiten;
                 card.appendChild(time);
+
+                let address = document.createElement("p");
+                address.textContent = obj.strasse + ", " + obj.plz;
+                card.appendChild(address);
 
                 let district = document.createElement("p");
                 district.textContent = obj.bezirk;

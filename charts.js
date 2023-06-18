@@ -3,7 +3,7 @@ let pie = document.getElementById("pie");
 
 let layout = {
     height: 500,
-    width: 600,
+    width: 800,
 };
 
 async function renderChart(result) {
@@ -38,22 +38,18 @@ async function renderChart(result) {
     console.log(values);
     console.log(counts);
 
-    drawBar(values, counts);
     drawPie(values, counts);
+    drawBar(values, counts);
 }
 
 function drawBar(values, counts) {
-    Plotly.newPlot(
-        bar,
-        [
-            {
-                x: values,
-                y: counts,
-                type: "bar",
-            },
-        ],
-        layout
-    );
+    Plotly.newPlot(bar, [
+        {
+            x: values,
+            y: counts,
+            type: "bar",
+        },
+    ]);
 }
 
 function drawPie(labels, values) {
