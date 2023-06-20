@@ -2,8 +2,9 @@ let bar = document.getElementById("bar");
 let pie = document.getElementById("pie");
 
 let layout = {
-    height: 500,
+    height: 450,
     width: 800,
+    title: "Wochen- und Trödelmärkte",
 };
 
 async function renderChart(result) {
@@ -42,16 +43,6 @@ async function renderChart(result) {
     drawBar(values, counts);
 }
 
-function drawBar(values, counts) {
-    Plotly.newPlot(bar, [
-        {
-            x: values,
-            y: counts,
-            type: "bar",
-        },
-    ]);
-}
-
 function drawPie(labels, values) {
     Plotly.newPlot(
         pie,
@@ -71,4 +62,14 @@ function drawPie(labels, values) {
 
         fetchAndRenderEvents(districts);
     });
+}
+
+function drawBar(values, counts) {
+    Plotly.newPlot(bar, [
+        {
+            x: values,
+            y: counts,
+            type: "bar",
+        },
+    ]);
 }
