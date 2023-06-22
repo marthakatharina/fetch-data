@@ -11,10 +11,10 @@ async function start() {
     const data = await fetchData(
         "https://www.berlin.de/sen/web/service/maerkte-feste/wochen-troedelmaerkte/index.php/index/all.json?q="
     );
-    // render events
-    renderEvents(data);
     // render charts
     renderChart(data);
+    // render events
+    renderEvents(data);
     // render map
     renderMap(data);
 }
@@ -26,6 +26,15 @@ async function fetchAndRenderEvents(districts) {
             districts
     );
     // render filtered events
+    renderEvents(data);
+}
+
+async function resetEvents() {
+    // fetch data
+    const data = await fetchData(
+        "https://www.berlin.de/sen/web/service/maerkte-feste/wochen-troedelmaerkte/index.php/index/all.json?q="
+    );
+    // render events
     renderEvents(data);
 }
 

@@ -55,7 +55,7 @@ async function fetchAndRenderStreets(str) {
 
     leafletPopup.forEach((el) => {
         el.addEventListener("click", () => {
-            console.log("pop up clicked");
+            // console.log("pop up clicked");
             let streets = str;
             console.log(streets);
 
@@ -90,9 +90,15 @@ async function fetchAndRenderStreets(str) {
                 address.textContent = obj.strasse + ", " + obj.plz;
                 card.appendChild(address);
 
-                let district = document.createElement("p");
+                let district = document.createElement("h4");
                 district.textContent = obj.bezirk;
                 card.appendChild(district);
+                card.style.borderInlineStart =
+                    "1.2rem solid " + colors[obj.bezirk];
+
+                if (obj.bezirk === "Friedrichsahin-Kreuzberg") {
+                    card.remove();
+                }
             }
         });
     });

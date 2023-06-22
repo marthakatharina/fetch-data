@@ -15,7 +15,7 @@
                 font-family: Arial, Helvetica, sans-serif;
                 width: 100vw;
                 height: 100vh;
-                padding: 10px;
+                padding: 20px;
             }
             #main-container {
                 display: grid;
@@ -33,10 +33,11 @@
                 overflow-y: scroll;
             }
             .card {
-                border: 1px solid black;
                 padding: 1rem;
                 margin-bottom: 1rem;
-                border-radius: 20px;
+                border-radius: 16px;
+                box-shadow: #dfe0e3 0px 1px 2px 0px, #dfe0e3 0px 1px 3px 1px;
+                background-color: #f0f0f0;
             }
             .cols {
                 display: grid;
@@ -45,16 +46,23 @@
             }
 
             h2 {
-                font-size: 1.1rem;
+                font-size: 1rem;
                 color: #111;
+                padding-bottom: 0.5rem;
             }
             h3 {
                 font-size: 0.9rem;
+                /* color: #8f9093; */
+                padding-bottom: 0.4rem;
+            }
+            h4 {
+                font-size: 0.8rem;
                 color: #111;
             }
             p {
                 font-size: 0.8rem;
                 color: #585858;
+                padding-bottom: 0.3rem;
             }
 
             button {
@@ -69,6 +77,9 @@
                 border: none;
                 background-color: #dfe0e3;
                 margin: 0px 0.6rem 10px 0;
+            }
+            .active {
+                border: 1px solid #111;
             }
 
             .leaflet-popup-content {
@@ -110,7 +121,10 @@
             <div>
                 <div>
                     <div style="display: inline" id="buttons-wrapper"></div>
-                    <button style="background-color: #c3d7f1" onclick="start()">
+                    <button
+                        style="background-color: #c3d7f1"
+                        onclick="resetEvents()"
+                    >
                         Alle
                     </button>
                 </div>

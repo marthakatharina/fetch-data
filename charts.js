@@ -2,7 +2,7 @@ let bar = document.getElementById("bar");
 let pie = document.getElementById("pie");
 
 let layout = {
-    height: 450,
+    height: 440,
     width: 800,
     title: "Wochen- und Trödelmärkte",
 };
