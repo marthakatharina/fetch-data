@@ -100,6 +100,10 @@ async function fetchAndRenderStreets(str) {
                     card.remove();
                 }
             }
+
+            btnsWrapper.childNodes.forEach((btn) => {
+                btn.classList.remove("active");
+            });
         });
     });
 }
