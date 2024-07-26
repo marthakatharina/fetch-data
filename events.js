@@ -3,19 +3,21 @@ let btnsWrapper = document.getElementById("buttons-wrapper");
 
 // global colors (also in map.js)
 let colors = {
-    Brandenburg: "rgb(255, 181, 116)",
-    "Charlottenburg-Wilmersdorf": "rgb(31, 119, 180)",
-    "Friedrichshain-Kreuzberg": "rgb(227, 119, 194)",
-    Lichtenberg: "rgb(255, 127, 14)",
-    "Marzahn-Hellersdorf": "rgb(87, 169, 226)",
-    Mitte: "rgb(44, 160, 44)",
-    Neukölln: "rgb(127, 127, 127)",
-    Pankow: "rgb(140, 86, 75)",
-    Reinickendorf: "rgb(95, 211, 95)",
-    Spandau: "rgb(188, 189, 34)",
-    "Steglitz-Zehlendorf": "rgb(214, 39, 40)",
-    "Tempelhof-Schöneberg": "rgb(148, 103, 189)",
-    "Treptow-Köpenick": "rgb(23, 190, 207)",
+    Brandenburg: "#1F77B4",
+    "Charlottenburg-Wilmersdorf": "#FFB575",
+    "Friedrichshain-Kreuzberg": "#E377C2",
+    Lichtenberg: "#D62829",
+    "Marzahn-Hellersdorf": "#60D35F",
+    Mitte: "#7F7F7F",
+    Neukölln: "#FF7F0E",
+    Pankow: "#BCBE23",
+    Reinickendorf: "#17BECE",
+    Spandau: "#58A9E2",
+    "Steglitz-Zehlendorf": "#9467BD",
+    "Tempelhof-Schöneberg": "#2CA02C",
+    "Treptow-Köpenick": "#8C564B",
+    "Prenzlauer Berg": "#C6AEDC",
+    Potsdam: "#E77C7C",
 };
 
 async function renderEvents(data) {
