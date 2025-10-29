@@ -1,5 +1,5 @@
 async function renderMap(result) {
-    let map = L.map("map").setView([52.520008, 13.404954], 11);
+    let map = L.map("map").setView([52.52, 13.405], 10);
     // console.log(map);
 
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
